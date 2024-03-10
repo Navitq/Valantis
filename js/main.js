@@ -11,7 +11,7 @@ async function getDataFromServer(action,params){
    let dayUTC = (new Date()).getUTCDate();
    let currentUTC = `${(new Date()).getUTCFullYear()}${monthUTC>=10?monthUTC:"0" + monthUTC}${dayUTC>=10?dayUTC:"0"+dayUTC}`;
    let serverPassword = "Valantis";
-   let serverURL = "http://api.valantis.store:40000/";
+   let serverURL = "https://api.valantis.store:41000/";
    
    let jsonBody = JSON.stringify({action,params});
    let serverData = null, data = null;
