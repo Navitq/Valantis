@@ -1,0 +1,56 @@
+.vlnts__header{
+   text-align: center;
+   font-size: 50px;
+}
+.vlnts__goods-cnt{
+   max-width: 1200px;
+   width: 100%;
+   margin: 20px auto;
+}
+.vlnts__goods{
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+   border: 2px solid grey;
+   align-items: center;
+   gap: 10px;
+}
+.vlnts__header__goods-card{
+   width: 100%;
+   max-width: 300px;
+   background-color: aquamarine;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   align-self: center;
+   flex-direction: column;
+   margin: 10px auto;
+   border: 2px solid grey;
+}
+.vlnts__pagination-cnt{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   gap: 4px;
+}
+.vlnts__pagination-cnt>div{
+   width: 40px;
+   height: 40px;
+   background-color: lightblue;
+   border-radius: 20px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+/* .vlnts__pagination-cnt::before{
+   content: "";
+   border: 15px solid transparent; border-right: 15px solid green;
+}
+.vlnts__pagination-cnt::after{
+   content: "";
+   border: 15px solid transparent; border-left: 15px solid green;
+} */
+.vlnts__goods-cnt>select{
+   margin-top: 10px;
+   margin-bottom: 20px;
+   width: 100px;
+}
