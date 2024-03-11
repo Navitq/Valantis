@@ -34,7 +34,6 @@ async function getDataFromServer(action,params){
       return "error";
    }
    if(action == "filter"){
-      console.log(data)
 
       return data;
    }
@@ -53,7 +52,6 @@ async function getDataFromServer(action,params){
          idCollections.add(data.result[i]);
          idCollectionsArray.push(data.result[i]);
          ++addedId;
-         console.log()
       }
    }
 
@@ -124,10 +122,8 @@ function addToPageFiltered(data){
    })
    let mainCont = document.getElementsByClassName("vlnts__goods")[0];
    mainCont.textContent = "";
-   console.log(typeof(data))
    let checkSet = new Set();
    for(let i=0;i<data.result.length;++i){
-      console.log((idCollections.has(data.result[i]), checkSet.has(data.result[i])), checkSet.has(data.result[i]),!idCollections.has(data.result[i]))
       if((idCollections.has(data.result[i]) && checkSet.has(data.result[i])) || checkSet.has(data.result[i])|| !idCollections.has(data.result[i])){
          continue;
       }
@@ -150,10 +146,11 @@ async function filterAPI(type, getValue){
       getValue = Number(getValue);
    }
    let data = "error";
-  // while(data == "error"){
-   console.log("filter", {[type]:getValue})
+   let counter = 0;
+   while(data == "error"|| counter == 6){
       data = await getDataFromServer("filter", {[type]:getValue})
-  // }
+      counter++;
+   }
    addToPageFiltered(data);
 }
 
@@ -161,7 +158,6 @@ async function filterAPI(type, getValue){
 
 document.getElementById("filter-butt").addEventListener("click",()=>{
    let type = document.getElementsByTagName("select")[0].value;
-   console.log(type)
    let getValue = document.getElementsByClassName("vlnts__sort")[0].value;
    filterAPI(type, getValue);
 })
