@@ -18,7 +18,6 @@ async function getDataFromServer(action,params){
    try{
       serverData =  await fetch(serverURL,
       {
-
          method: 'POST',
          headers:{
             "X-Auth": md5(`${serverPassword}_${currentUTC}`),
@@ -45,7 +44,6 @@ async function getDataFromServer(action,params){
       }
       return;
    }
-
    let addedId = 0;
    for(let i=0;i<data.result.length;++i){
       if(!idCollections.has(data.result[i])){
@@ -54,7 +52,6 @@ async function getDataFromServer(action,params){
          ++addedId;
       }
    }
-
    if(addedId<params.limit){
       lastId +=  params.limit;
       try{
@@ -67,11 +64,9 @@ async function getDataFromServer(action,params){
       lastId +=params.limit;
    }
    return;
-   
 }
 
 async function getDataD(action,params,size){
-
    if(action == "get_ids"){
       while( idCollectionsArray.length < size ){
          await getDataFromServer(action, params);
@@ -79,7 +74,6 @@ async function getDataD(action,params,size){
          callBacks=0;
       }
       getDataD("get_items", {ids: idCollectionsArray},250)
-
    } else if(action == "get_items"){
       while( Object.keys(idCollectionsObjects).length <  size ){
          let partOfArray  = [];
@@ -92,11 +86,7 @@ async function getDataD(action,params,size){
       } 
       addToPage(1);
    }
-
-
 }
-
-
 
 function addToPage(start=1){
    let mainCont = document.getElementsByClassName("vlnts__goods")[0];
@@ -140,7 +130,6 @@ function addToPageFiltered(data){
    }
 }
 
-
 async function filterAPI(type, getValue){
    if(type=="price"){
       getValue = Number(getValue);
@@ -154,18 +143,11 @@ async function filterAPI(type, getValue){
    addToPageFiltered(data);
 }
 
-
-
 document.getElementById("filter-butt").addEventListener("click",()=>{
    let type = document.getElementsByTagName("select")[0].value;
    let getValue = document.getElementsByClassName("vlnts__sort")[0].value;
    filterAPI(type, getValue);
 })
-
-
-
-
-
 
 let btts = document.querySelectorAll(".vlnts__pagination-cnt div");
 btts.forEach((element,index)=>{
@@ -173,9 +155,6 @@ btts.forEach((element,index)=>{
       addToPage(index+1);
    })
 })
-
-
-
 
 getDataD("get_ids", {offset: lastId, limit: 50},250);
 

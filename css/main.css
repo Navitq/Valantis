@@ -41,14 +41,6 @@
    align-items: center;
    justify-content: center;
 }
-/* .vlnts__pagination-cnt::before{
-   content: "";
-   border: 15px solid transparent; border-right: 15px solid green;
-}
-.vlnts__pagination-cnt::after{
-   content: "";
-   border: 15px solid transparent; border-left: 15px solid green;
-} */
 .vlnts__goods-cnt>select{
    margin-top: 10px;
    margin-bottom: 20px;
