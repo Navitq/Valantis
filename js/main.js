@@ -107,9 +107,9 @@ function addToPage(start=1){
 function addToPageFiltered(data){
    let pagination = document.querySelectorAll(".vlnts__pagination-cnt div");
    let freePages = Math.ceil(data.length/50);
-   pagination.forEach((element,index)=>{
-      element.style.pointerEvents = "none";
-   })
+   // pagination.forEach((element,index)=>{
+   //    element.style.pointerEvents = "none";
+   // })
    let mainCont = document.getElementsByClassName("vlnts__goods")[0];
    mainCont.textContent = "";
    let checkSet = new Set();
